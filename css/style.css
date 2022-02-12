@@ -179,8 +179,11 @@ nav .nav-bar .logo a{
     background-color: var(--hover-color);
 }
 
-
-
+@media(max-width: 450px){
+    .top-nav a{
+        width: 100%;
+    }
+}
 
 @media (max-width: 790px){
 
