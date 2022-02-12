@@ -5,12 +5,12 @@
 }
 
 :root{
-    --body-color: #E4E9F7;
-    --nav-color: #4070F4;
-    --side-nav: #010718;
+    --body-color: #ffffff;
+    --nav-color: #009900;
+    --side-nav: #001a00;
     --text-color: #FFF;
-    --search-bar: #F2F2F2;
-    --search-text: #010718;
+    --hover-color: #008000;
+    --content-color: #000000;
 }
 
 body{
@@ -23,8 +23,8 @@ body.dark{
     --nav-color: #242526;
     --side-nav: #242526;
     --text-color: #FFF;
-    --search-bar: #F2F2F2;
-    --search-text: #010718;
+    --hover-color: #333333;
+    --content-color: #FFF;
 }
 
 nav{
@@ -34,7 +34,7 @@ nav{
     height: 70px;
     background-color: var(--nav-color);
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
 }
 
 nav .nav-bar{
@@ -134,7 +134,7 @@ nav .nav-bar .logo a{
 
 .dark-light i,
 .search-box i{
-    position: absolute;
+    position: fixed;
     color: var(--text-color);
     font-size: 22px;
     cursor: pointer;
@@ -157,6 +157,30 @@ nav .nav-bar .logo a{
     pointer-events: none;
 }
 
+.top-nav{
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    left: 0;
+}
+
+.top-nav a{
+    width: 33.3%;
+    background-color: var(--nav-color);
+    float: left;
+    display: block;
+    color: var(--text-color);
+    text-align: center;
+    padding: 15px 16px;
+    text-decoration: none;
+}
+
+.top-nav a:hover{
+    background-color: var(--hover-color);
+}
+
+
+
 
 @media (max-width: 790px){
 
@@ -167,17 +191,17 @@ nav .nav-bar .logo a{
     .menu{
         position: fixed;
         height: 100%;
-        width: 320px;
+        width: 250px;
         left: -100%;
         top: 0;
         padding: 20px;
         background-color: var(--side-nav);
-        z-index: 100;
+        z-index: 1000;
         transition: all 0.3s ease;
     }
 
     nav.active .menu{
-        left: -0%;
+        left: 0%;
     }
 
     nav.active .nav-bar .navLogo a{

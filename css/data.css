@@ -1,0 +1,10 @@
+.data-buku{
+    position: absolute;
+    top: 120px;
+    padding: 10px;
+}
+
+.data-buku .column{
+    z-index: -1;
+    color: var(--content-color);
+}

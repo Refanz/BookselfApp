@@ -1,5 +1,6 @@
 const body = document.querySelector("body");
 const nav = document.querySelector("nav");
+const topNav = document.querySelector(".top-nav");
 const modeToggle =  document.querySelector(".dark-light");
 const searchToggle = document.querySelector(".searchBox");
 const sideBarOpen = document.querySelector(".sideBarOpen");
@@ -7,7 +8,7 @@ const sideBarClose = document.querySelector(".sideBarClose");
 
 let getMode = localStorage.getItem("mode");
 
-if(getMode && getMode === "dark-mode"){
+if(getMode === "dark-mode"){
     body.classList.add("dark");
 }
 
@@ -17,7 +18,7 @@ modeToggle.addEventListener("click", () => {
     modeToggle.classList.toggle("active");
     body.classList.toggle("dark");
 
-    if(!body.classList.contains("dark")) {
+    if(body.classList.contains("dark") === false) {
         localStorage.setItem("mode", "light-mode");
     }else{
         localStorage.setItem("mode", "dark-mode");
