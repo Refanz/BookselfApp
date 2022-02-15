@@ -164,12 +164,32 @@
 
     <!-- Bagian 5 -->
     <div class="cari-buku">
-      <div class="row">
+      <form action="">
         <h2>Cari Buku</h2>
-        <input type="text" name="cari" placeholder="Cari.." style="margin-top: 15px;">
-      </div>
+
+        <div class="row">
+          <input type="text" name="cari" placeholder="Cari.." style="margin-top: 15px;">
+        </div>
+
+        <div class="row">
+          <input type="submit" value="Cari Buku">
+        </div>
+      </form>
+
       <div class="row">
-        <input type="submit" value="Cari Buku">
+        <h2>Hasil Cari</h2>
+      </div>
+
+      <div class="hasil-cari">
+        <div class="column-hasil">
+          <h3 id="judul-buku">Permata Putih</h3>
+          <img src="./assets/buku.jpg" alt="Buku" width="150px" height="200px">
+          <div class="desc">
+            <p>Author : <span id="author">JK Rowling</span> </p>
+            <p>Tahun : <span id="tahun">2020</span></p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eius minima nisi ea maiores quibusdam autem. Nisi alias pariatur sapiente labore, quia aliquam libero, dolore vel asperiores ab dolorum ipsa!</p>
+          </div>
+        </div>
       </div>
     </div>
 
