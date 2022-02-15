@@ -1,0 +1,35 @@
+.cari-buku{
+    display: none;
+    position:absolute;
+    top: 120px;
+    padding: 10px ;
+    width: 100%;
+    
+}
+
+.cari-buku.active{
+    display: block;
+}
+
+.cari-buku.active input[type="text"]{
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: white;
+    background-image: url('/assets/bx-search-alt-2.svg');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 15px 20px 12px 40px;
+}
+
+.cari-buku.active h2{
+    border-bottom: 1px solid;
+    color: var(--content-color);
+}
+
+@media (max-width: 450px){
+    .cari-buku.active{
+        top: 220px;
+    }
+}
