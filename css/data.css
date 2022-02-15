@@ -50,7 +50,7 @@
 
 
 @media (max-width: 700px) {
-    .data-buku .column{
+    .data-buku.active .column{
         width: 100%;
     }
 }
@@ -60,7 +60,7 @@
         top: 220px;
     }
 
-    .data-buku .column{
+    .data-buku.active .column{
         width: 100%;
     }
 }
