@@ -1,0 +1,70 @@
+.tambah-buku{
+    display: none;
+    position: absolute;
+    top: 120px;
+    padding: 10px;
+    z-index: -1;
+    width: 100%;
+}
+
+.tambah-buku.active{
+    display: block;
+}
+
+.tambah-buku.active h2{
+    color: var(--content-color);
+    border-bottom: 1px solid;
+    border-bottom-color: var(--content-color);
+}
+
+form .row{
+    margin: 10px 0;
+}
+
+input[type="text"],
+input[type="date"]{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+input[type="submit"]{
+    background-color: var(--nav-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover{
+    background-color: var(--hover-color);
+}
+
+.col-25{
+    float: left;
+    width: 25%;
+    margin-top: 10px;
+}
+
+.col-75{
+    float: left;
+    width: 75%;
+    margin-top: 10px;
+}
+
+@media (max-width: 700px) {
+    .tambah-buku.active{
+        width: 100%;
+    }
+}
+
+@media(max-width: 450px){
+    .tambah-buku{
+        top: 220px;
+    }
+}

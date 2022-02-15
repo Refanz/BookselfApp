@@ -7,8 +7,9 @@
     <title>Bookself Apps</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/data.css">
+    <link rel="stylesheet" href="./css/form.css">
 
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -53,7 +54,7 @@
     
     <!-- Bagian 3 -->
     <div class="data-buku active">
-      <div class="buku-belum-dibaca col-12">
+      <div class="buku-belum-dibaca ">
         <h2>Buku Belum Dibaca</h2>
 
         <div class="column">
@@ -97,7 +98,7 @@
         </div>
       </div>
 
-      <div class="buku-sudah-dibaca col-12">
+      <div class="buku-sudah-dibaca">
         <h2>Buku Sudah Dibaca</h2>
 
         <div class="column">
@@ -124,7 +125,40 @@
 
     <!-- Bagian 4 -->
     <div class="tambah-buku">
+      <h2>Form Tambah Buku</h2>
 
+      <form action="">
+        <div class="row">
+          <div class="col-25">
+            <label for="judul-buku">Judul Buku</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="judul-buku" name="judul-buku" placeholder="Judul Buku.." autocomplete="off">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="author-buku">Author</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="author-buku" id="author-buku" placeholder="Author Buku.." autocomplete="off">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="tahun-buku">Tahun</label>
+          </div>
+          <div class="col-75">
+            <input type="date" name="tahun-buku" id="tahun-buku" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="row">
+          <input type="submit" name="submit-buku" value="Tambah Buku"> 
+        </div>
+      </form>
     </div>
 
     <!-- Bagian 5 -->
