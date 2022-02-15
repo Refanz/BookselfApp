@@ -1,16 +1,29 @@
 .data-buku{
     position: absolute;
     top: 120px;
+    z-index: -1;
     padding: 10px;
 }
 
 .data-buku .column{
-    z-index: -1;
     color: var(--content-color);
+    width: 33.33%;
+    padding: 10px;
+    float: left;
+}
+
+.data-buku:after{
+    content: "";
+    display: table;
+    clear: both;
 }
 
 @media(max-width: 450px){
     .data-buku{
         top: 220px;
+    }
+
+    .data-buku .column{
+        width: 100%;
     }
 }
