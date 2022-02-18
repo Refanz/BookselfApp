@@ -65,9 +65,6 @@
 }
 
 @media(max-width: 450px){
-    .cari-buku.active{
-        top: 220px;
-    }
 
     .cari-buku.active .column-hasil{
         width: 100%;

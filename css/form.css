@@ -66,12 +66,6 @@ input[type="submit"]:hover{
     }
 }
 
-@media(max-width: 450px){
-    .tambah-buku{
-        top: 220px;
-    }
-}
-
 @media screen and (max-width: 700px){
     .col-25, .col-75, input[type=submit]{
         width: 100%;

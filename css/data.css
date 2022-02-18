@@ -58,9 +58,6 @@
 }
 
 @media(max-width: 450px){
-    .data-buku{
-        top: 220px;
-    }
 
     .data-buku.active .column{
         width: 100%;
