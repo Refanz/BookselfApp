@@ -38,7 +38,7 @@ const ID_LIST_BUKU_SUDAH_DIBACA = "completed-book";
 const ID_LIST_BUKU_BELUM_DIBACA = "uncompleted-book";
 const ID_BOOK = "book-id";
 
-const buatDataBuku = (title, author, year, isComplete) => {
+const buatDataBuku = (title, author, year, isCompleted) => {
     const textTitle = document.createElement("h3");
     textTitle.setAttribute("id", "judul-buku");
     textTitle.innerHTML = title;
@@ -60,34 +60,59 @@ const buatDataBuku = (title, author, year, isComplete) => {
     const textDesc = document.createElement("p");
     textDesc.setAttribute("id", "desc-book");
     textDesc.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eius minima nisi ea maiores quibusdam autem. Nisi alias pariatur sapiente labore, quia aliquam libero, dolore vel asperiores ab dolorum ipsa!";
-
-    const btnSelesai = document.createElement("input");
-    btnSelesai.setAttribute("type", "submit");
-    btnSelesai.setAttribute("name", "btnSelesai");
-    btnSelesai.setAttribute("value", "Selesai Baca");
-
-    const btnHapus = document.createElement("input");
-    btnHapus.setAttribute("type", "submit");
-    btnHapus.setAttribute("name", "btnHapus");
-    btnHapus.setAttribute("value", "Hapus Buku");
-
-    const aksiBuku = document.createElement("form");
-    aksiBuku.classList.add("form");
-    aksiBuku.append(btnSelesai, btnHapus);
-
-    const rowAksi = document.createElement("div");
-    rowAksi.classList.add("action");
-    rowAksi.append(aksiBuku);
-
+    
     const rowDesc = document.createElement("div");
     rowDesc.classList.add("desc");
     rowDesc.append(textAuthor, textYear, textDesc);
 
     const column = document.createElement("div");
     column.classList.add("column");
-    column.append(textTitle, imgBook, rowDesc, rowAksi);
+    column.append(textTitle, imgBook, rowDesc);
+
+    if(isCompleted === true){
+        column.append(
+            buatTombolUndo(), 
+            buatTombolHapusBuku());
+    }else{
+        column.append(
+            buatTombolSelesaiBaca(),
+            buatTombolHapusBuku());
+
+    }
 
     return column;
+}
+
+/* Buat Tombol Aksi */
+const buatTombol = (nameTombol, valueTombol, eventListener) => {
+    const tombol = document.createElement("input");
+    tombol.setAttribute("type", "submit");
+    tombol.setAttribute("name", nameTombol);
+    tombol.setAttribute("value", valueTombol);
+    
+    tombol.addEventListener("click", (event) => {
+        eventListener(event);
+    });
+
+    return tombol;
+}
+
+const buatTombolSelesaiBaca = () => {
+    return buatTombol("btnSelesai", "Selesai Baca", (event) => {
+        tambahBukuKeSelesai(event.target.parentElement);
+    });
+}
+
+const buatTombolHapusBuku = () => {
+    return buatTombol("btnHapus", "Hapus Buku", (event) => {
+        hapusBukuDariListCompleted(event.target.parentElement);
+    });
+}
+
+const buatTombolUndo = () => {
+    return buatTombol("btnBelumSelesaiBaca", "Belum Selesai Baca", (event) => {
+        undoBukuDariListCompleted(event.target.parentElement);
+    });
 }
 
 const tambahDataBuku = () => {
@@ -98,5 +123,37 @@ const tambahDataBuku = () => {
 
     const buku = buatDataBuku(textTitle, textAuthor, textYear, false) ;
     uncompletedListBookId.append(buku);
+    kosongkanForm();
     alert("Tambah Buku Selesai");
+}
+
+const tambahBukuKeSelesai = (bookElement) => {
+    const listCompleted = document.getElementById(ID_LIST_BUKU_SUDAH_DIBACA);
+    const textTitle = bookElement.querySelector("div.column > h3").innerText;
+    const textAuthor = bookElement.querySelector(".desc > #author").innerText;
+    const textYear = bookElement.querySelector(".desc > #year").innerText;
+
+    const newBook = buatDataBuku(textTitle, textAuthor, textYear, true);
+
+    listCompleted.append(newBook);
+    bookElement.remove();
+}
+
+const hapusBukuDariListCompleted = (bookElement) => {
+
+}
+
+const undoBukuDariListCompleted = (bookElement) => {
+
+}
+
+/* Kosongkan Form */
+const kosongkanForm = () => {
+    const fieldTitle = document.getElementById("form-judul-buku");
+    const fieldAuthor = document.getElementById("form-author-buku");
+    const fieldYear = document.getElementById("form-tahun-buku");
+
+    fieldTitle.value = "";
+    fieldAuthor.value = "";
+    fieldYear.value = "";
 }

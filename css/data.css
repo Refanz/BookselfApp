@@ -10,13 +10,18 @@
 .data-buku .buku-belum-dibaca,
 .data-buku .buku-sudah-dibaca{
     float: left;
+    width: 100%;
 }
 
 .data-buku .buku-belum-dibaca h2,
 .data-buku .buku-sudah-dibaca h2{
-    color: var(--content-color);
-    border-bottom: 1px solid;
-    border-bottom-color: var(--content-color);
+    color: black;
+    text-shadow: 1px;
+    border-left: 5px solid;
+    border-left-color: var(--border-side-color);
+    background-color: var(--border-bg);
+    padding: 8px;
+    margin: 10px 0 0 0;
 }
 
 .data-buku.active{

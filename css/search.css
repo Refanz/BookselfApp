@@ -24,8 +24,13 @@
 }
 
 .cari-buku.active h2{
-    border-bottom: 1px solid;
-    color: var(--content-color);
+    color: black;
+    text-shadow: 1px;
+    border-left: 5px solid;
+    border-left-color: var(--border-side-color);
+    background-color: var(--border-bg);
+    padding: 8px;
+    margin: 10px 0 0 0;
 }
 
 
@@ -53,9 +58,13 @@
 }
 
 .cari-buku.active .row h2{
-    color: var(--content-color);
-    border-bottom: 1px solid;
-    border-bottom-color: var(--content-color);
+    color: black;
+    text-shadow: 1px;
+    border-left: 5px solid;
+    border-left-color: var(--border-side-color);
+    background-color: var(--border-bg);
+    padding: 8px;
+    margin: 10px 0 0 0;
 }
 
 @media(max-width: 700px){

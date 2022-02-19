@@ -11,6 +11,8 @@
     --text-color: #FFF;
     --hover-color: #008000;
     --content-color: #000000;
+    --border-side-color: #008000;
+    --border-bg: #b3ffb3;
 }
 
 body{
@@ -25,6 +27,8 @@ body.dark{
     --text-color: #FFF;
     --hover-color: #333333;
     --content-color: #FFF;
+    --border-side-color: #808080;
+    --border-bg: #d9d9d9;
 }
 
 nav{
