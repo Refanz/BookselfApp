@@ -56,9 +56,12 @@
     <!-- Bagian 3 -->
     <div class="data-buku active">
       <div class="buku-belum-dibaca ">
-        <h2>Buku Belum Dibaca</h2>
+        <h2 style="margin-bottom: 20px;">Buku Belum Dibaca</h2>
+        
+        <div class="list-book" id="uncompleted-book">
 
-        <div class="column">
+        </div>
+        <!-- <div class="column">
           <h3 id="judul-buku">Permata Putih</h3>
           <img src="./assets/buku.jpg" alt="Buku" width="150px" height="200px">
           <div class="desc">
@@ -66,37 +69,13 @@
             <p>Tahun : <span id="tahun">2020</span></p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eius minima nisi ea maiores quibusdam autem. Nisi alias pariatur sapiente labore, quia aliquam libero, dolore vel asperiores ab dolorum ipsa!</p>
           </div>
-        </div>
-
-        <div class="column">
-          <h3 id="judul-buku">Permata Putih</h3>
-          <img src="./assets/buku.jpg" alt="Buku" width="150px" height="200px">
-          <div class="desc">
-            <p>Author : <span id="author">JK Rowling</span> </p>
-            <p>Tahun : <span id="tahun">2020</span></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eius minima nisi ea maiores quibusdam autem. Nisi alias pariatur sapiente labore, quia aliquam libero, dolore vel asperiores ab dolorum ipsa!</p>
+          <div class="action">
+            <form action="" class="form">
+              <input type="submit" name="btnSelesai" value="Selesai Baca">
+              <input type="submit" name="btnHapus" value="Hapus Buku">
+            </form>
           </div>
-        </div>
-
-        <div class="column">
-          <h3 id="judul-buku">Permata Putih</h3>
-          <img src="./assets/buku.jpg" alt="Buku" width="150px" height="200px">
-          <div class="desc">
-            <p>Author : <span id="author">JK Rowling</span> </p>
-            <p>Tahun : <span id="tahun">2020</span></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eius minima nisi ea maiores quibusdam autem. Nisi alias pariatur sapiente labore, quia aliquam libero, dolore vel asperiores ab dolorum ipsa!</p>
-          </div>
-        </div>
-
-        <div class="column">
-          <h3 id="judul-buku">Permata Putih</h3>
-          <img src="./assets/buku.jpg" alt="Buku" width="150px" height="200px">
-          <div class="desc">
-            <p>Author : <span id="author">JK Rowling</span> </p>
-            <p>Tahun : <span id="tahun">2020</span></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eius minima nisi ea maiores quibusdam autem. Nisi alias pariatur sapiente labore, quia aliquam libero, dolore vel asperiores ab dolorum ipsa!</p>
-          </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="buku-sudah-dibaca">
@@ -108,17 +87,13 @@
           <div class="desc">
             <p>Author : <span id="author">JK Rowling</span> </p>
             <p>Tahun : <span id="tahun">2020</span></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eius minima nisi ea maiores quibusdam autem. Nisi alias pariatur sapiente labore, quia aliquam libero, dolore vel asperiores ab dolorum ipsa!</p>
+            <p><span id="desc-book">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eius minima nisi ea maiores quibusdam autem. Nisi alias pariatur sapiente labore, quia aliquam libero, dolore vel asperiores ab dolorum ipsa!</span></p>
           </div>
-        </div>
-
-        <div class="column">
-          <h3 id="judul-buku">Permata Putih</h3>
-          <img src="./assets/buku.jpg" alt="Buku" width="150px" height="200px">
-          <div class="desc">
-            <p>Author : <span id="author">JK Rowling</span> </p>
-            <p>Tahun : <span id="tahun">2020</span></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eius minima nisi ea maiores quibusdam autem. Nisi alias pariatur sapiente labore, quia aliquam libero, dolore vel asperiores ab dolorum ipsa!</p>
+          <div class="action">
+            <form action="">
+              <input type="submit" name="btnBelumSelesai" value="Belum Selesai Baca">
+              <input type="submit" name="btnHapusBuku" value="Hapus Buku">
+            </form>
           </div>
         </div>
       </div>
@@ -128,13 +103,13 @@
     <div class="tambah-buku">
       <h2>Form Tambah Buku</h2>
 
-      <form action="">
+      <form action="#" class="form-tambah-buku" id="form-tambah-buku">
         <div class="row">
           <div class="col-25">
             <label for="judul-buku">Judul Buku</label>
           </div>
           <div class="col-75">
-            <input type="text" id="judul-buku" name="judul-buku" placeholder="Judul Buku.." autocomplete="off" required>
+            <input type="text" id="form-judul-buku" name="form-judul-buku" placeholder="Judul Buku.." autocomplete="off" required>
           </div>
         </div>
         
@@ -143,7 +118,7 @@
             <label for="author-buku">Author</label>
           </div>
           <div class="col-75">
-            <input type="text" name="author-buku" id="author-buku" placeholder="Author Buku.." autocomplete="off" required>
+            <input type="text" name="form-author-buku" id="form-author-buku" placeholder="Author Buku.." autocomplete="off" required>
           </div>
         </div>
         
@@ -152,7 +127,7 @@
             <label for="tahun-buku">Tahun</label>
           </div>
           <div class="col-75">
-            <input type="number" name="tahun-buku" id="tahun-buku" autocomplete="off">
+            <input type="number" name="form-tahun-buku" id="form-tahun-buku" autocomplete="off" placeholder="Tahun Buku.." required>
           </div>
         </div>
 
@@ -193,8 +168,9 @@
       </div>
     </div>
 
-    <script src="./js/script.js" type="text/javascript"></script>
+    <script src="./js/toggle.js" type="text/javascript"></script>
     <script src="./js/dom.js" type="text/javascript"></script>
+    <script src="./js/script.js" type="text/javascript"></script>
 
 </body>
 </html>
