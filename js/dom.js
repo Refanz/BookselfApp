@@ -175,6 +175,7 @@ btnSearchBuku.addEventListener("click", () => {
     if(fieldCariBuku === ""){
         hasil.innerHTML = "";
     }else{
+        hasil.innerHTML = "";
         cariBuku(fieldCariBuku);
     }
 })
@@ -190,11 +191,8 @@ const cariBuku = (cariBuku) => {
             author = books[i].querySelector("#author").innerText;
             year = books[i].querySelector("#year").innerText;
             kolom.append(temuBuku(title, author, year));
-        }else{
-            alert("Buku Tidak Ada")
         }
     }
-
 }
 
 const temuBuku = (textTitle, textAuthor, textYear) => {
