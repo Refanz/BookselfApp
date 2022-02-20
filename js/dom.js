@@ -140,11 +140,19 @@ const tambahBukuKeSelesai = (bookElement) => {
 }
 
 const hapusBukuDariListCompleted = (bookElement) => {
-
+    bookElement.remove();
 }
 
 const undoBukuDariListCompleted = (bookElement) => {
+    const listUncompleted = document.getElementById(ID_LIST_BUKU_BELUM_DIBACA);
+    const textTitle = bookElement.querySelector("div.column > h3").innerText;
+    const textAuthor = bookElement.querySelector(".desc > #author").innerText;
+    const textYear = bookElement.querySelector(".desc > #year").innerText;
 
+    const book = buatDataBuku(textTitle, textAuthor, textYear, false);
+
+    listUncompleted.append(book);
+    bookElement.remove();
 }
 
 /* Kosongkan Form */
@@ -156,4 +164,66 @@ const kosongkanForm = () => {
     fieldTitle.value = "";
     fieldAuthor.value = "";
     fieldYear.value = "";
+}
+
+/* DOM Search */
+const btnSearchBuku = document.getElementById("btn-search-buku");
+
+btnSearchBuku.addEventListener("click", () => {
+    const fieldCariBuku = document.querySelector("#field-cari-buku").value;
+    const hasil = document.querySelector(".hasil-cari");
+    if(fieldCariBuku === ""){
+        hasil.innerHTML = "";
+    }else{
+        cariBuku(fieldCariBuku);
+    }
+})
+
+const cariBuku = (cariBuku) => {
+    const kolom = document.querySelector(".hasil-cari");
+    let title, author, year;
+    const books = document.querySelector(".data-buku").querySelectorAll(".column");
+
+    for(let i = 0; i < books.length; i++){
+        if(books[i].querySelector("#judul-buku").innerText.toLowerCase().indexOf(cariBuku.toLowerCase()) > -1){
+            title = books[i].querySelector("#judul-buku").innerText;
+            author = books[i].querySelector("#author").innerText;
+            year = books[i].querySelector("#year").innerText;
+            kolom.append(temuBuku(title, author, year));
+        }else{
+            alert("Buku Tidak Ada")
+        }
+    }
+
+}
+
+const temuBuku = (textTitle, textAuthor, textYear) => {
+    const title = document.createElement("h3");
+    title.setAttribute("id", "judul-buku");
+    title.innerText = textTitle;
+
+    const author = document.createElement("p");
+    author.innerText = "Author : " + textAuthor;
+
+    const year = document.createElement("p");
+    year.innerText = "Year : " + textYear;
+
+    const desc = document.createElement("p");
+    desc.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eius minima nisi ea maiores quibusdam autem. Nisi alias pariatur sapiente labore, quia aliquam libero, dolore vel asperiores ab dolorum ipsa!";
+
+    const imgBook = document.createElement("img");
+    imgBook.setAttribute("src","./assets/buku.jpg");
+    imgBook.setAttribute("width","150px");
+    imgBook.setAttribute("height","200px");
+    imgBook.setAttribute("alt","Buku");
+
+    const rowDesc = document.createElement("div");
+    rowDesc.classList.add("desc");
+    rowDesc.append(author, year, desc);
+
+    const col = document.createElement("div");
+    col.classList.add("column-hasil");
+    col.append(title, imgBook, rowDesc);
+
+    return col;
 }
