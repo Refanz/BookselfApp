@@ -23,16 +23,6 @@ btnCariBuku.addEventListener("click", () => {
     hlmTambahBuku.classList.remove("active");
 })
 
-/*
-    { 
-        id: String | number, 
-        title: String,
-        author: String,
-        year: number,
-        isComplete: boolean,
-    }
-*/
-
 /* DOM DATA BUKU */
 const ID_LIST_BUKU_SUDAH_DIBACA = "completed-book";
 const ID_LIST_BUKU_BELUM_DIBACA = "uncompleted-book";
@@ -201,10 +191,10 @@ const temuBuku = (textTitle, textAuthor, textYear) => {
     title.innerText = textTitle;
 
     const author = document.createElement("p");
-    author.innerText = "Author : " + textAuthor;
+    author.innerText = textAuthor;
 
     const year = document.createElement("p");
-    year.innerText = "Year : " + textYear;
+    year.innerText = textYear;
 
     const desc = document.createElement("p");
     desc.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eius minima nisi ea maiores quibusdam autem. Nisi alias pariatur sapiente labore, quia aliquam libero, dolore vel asperiores ab dolorum ipsa!";
