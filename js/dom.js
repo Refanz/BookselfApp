@@ -41,11 +41,20 @@ const buatDataBuku = (title, author, year, isCompleted) => {
 
     const textAuthor = document.createElement("p");
     textAuthor.setAttribute("id", "author");
-    textAuthor.innerText = "Author : " + author;
+    textAuthor.innerText = "Author : ";
 
     const textYear = document.createElement("p");
     textYear.setAttribute("id", "year");
-    textYear.innerText = "Year : " + year;
+    textYear.innerText = "Year : ";
+
+    const fillAuthor = document.createElement("span");
+    fillAuthor.innerText = author;
+
+    const fillYear = document.createElement("span");
+    fillYear.innerText = year;
+
+    textAuthor.append(fillAuthor);
+    textYear.append(fillYear);
 
     const textDesc = document.createElement("p");
     textDesc.setAttribute("id", "desc-book");
@@ -129,8 +138,8 @@ const tambahDataBuku = () => {
 const tambahBukuKeSelesai = (bookElement) => {
     const listCompleted = document.getElementById(ID_LIST_BUKU_SUDAH_DIBACA);
     const textTitle = bookElement.querySelector("div.column > h3").innerText;
-    const textAuthor = bookElement.querySelector(".desc > #author").innerText;
-    const textYear = bookElement.querySelector(".desc > #year").innerText;
+    const textAuthor = bookElement.querySelector(".desc > #author > span").innerText;
+    const textYear = bookElement.querySelector(".desc > #year > span").innerText;
 
     const newBook = buatDataBuku(textTitle, textAuthor, textYear, true);
     const book = findBook(bookElement[ID_BOOK]);
@@ -155,8 +164,8 @@ const hapusBukuDariListCompleted = (bookElement) => {
 const undoBukuDariListCompleted = (bookElement) => {
     const listUncompleted = document.getElementById(ID_LIST_BUKU_BELUM_DIBACA);
     const textTitle = bookElement.querySelector("div.column > h3").innerText;
-    const textAuthor = bookElement.querySelector(".desc > #author").innerText;
-    const textYear = bookElement.querySelector(".desc > #year").innerText;
+    const textAuthor = bookElement.querySelector(".desc > #author > span").innerText;
+    const textYear = bookElement.querySelector(".desc > #year > span").innerText;
     const newBook = buatDataBuku(textTitle, textAuthor, textYear, false);
 
     const book = findBook(bookElement[ID_BOOK]);
