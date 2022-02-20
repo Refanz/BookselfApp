@@ -7,4 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
     })
 
+    if(isStorageExist()){
+        loadDataFromStorage();
+    }
+
+})
+
+document.addEventListener("ondataloaded", () => {
+    refreshDataFromBooks();
 })

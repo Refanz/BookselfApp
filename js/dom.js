@@ -105,6 +105,8 @@ const buatTombolUndo = () => {
     });
 }
 
+/* Operasi CRUD */
+
 const tambahDataBuku = () => {
     const uncompletedListBookId = document.getElementById(ID_LIST_BUKU_BELUM_DIBACA);
     const textTitle = document.getElementById("form-judul-buku").value;
@@ -112,9 +114,16 @@ const tambahDataBuku = () => {
     const textYear = document.getElementById("form-tahun-buku").value;
 
     const buku = buatDataBuku(textTitle, textAuthor, textYear, false) ;
+    const bukuObject = composeBookObject(textTitle, textAuthor, textYear, false);
+    buku[ID_BOOK] = bukuObject.id;
+    books.push(bukuObject);
+
     uncompletedListBookId.append(buku);
+    updateDataToStorage();
     kosongkanForm();
     alert("Tambah Buku Selesai");
+
+    
 }
 
 const tambahBukuKeSelesai = (bookElement) => {
@@ -124,13 +133,23 @@ const tambahBukuKeSelesai = (bookElement) => {
     const textYear = bookElement.querySelector(".desc > #year").innerText;
 
     const newBook = buatDataBuku(textTitle, textAuthor, textYear, true);
+    const book = findBook(bookElement[ID_BOOK]);
+    book.isCompleted = true;
+    newBook[ID_BOOK] = book.id;
 
     listCompleted.append(newBook);
     bookElement.remove();
+
+    updateDataToStorage();
 }
 
 const hapusBukuDariListCompleted = (bookElement) => {
+    const bookPosition = findBookIndex(bookElement[ID_BOOK]);
+    books.splice(bookPosition, 1);
+
     bookElement.remove();
+
+    updateDataToStorage();
 }
 
 const undoBukuDariListCompleted = (bookElement) => {
@@ -138,11 +157,16 @@ const undoBukuDariListCompleted = (bookElement) => {
     const textTitle = bookElement.querySelector("div.column > h3").innerText;
     const textAuthor = bookElement.querySelector(".desc > #author").innerText;
     const textYear = bookElement.querySelector(".desc > #year").innerText;
+    const newBook = buatDataBuku(textTitle, textAuthor, textYear, false);
 
-    const book = buatDataBuku(textTitle, textAuthor, textYear, false);
+    const book = findBook(bookElement[ID_BOOK]);
+    book.isCompleted = false;
+    newBook[ID_BOOK] = book.id;
 
-    listUncompleted.append(book);
+    listUncompleted.append(newBook);
     bookElement.remove();
+
+    updateDataToStorage();
 }
 
 /* Kosongkan Form */
